@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weaher App</title>
+  <meta name="viewport" content="width=device-width, initial-scale-1">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/jquery.simpleWeather.min.js"></script>
+  <script src="js/handlebars-v4.0.5.js"></script>
+  <script src="js/Chart.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+      <div id="Home" data-role="page">
+        <div data-role="panel" id="searchCity">
+          <form class="ui-filterable">
+            <input id="city" data-type="search" placeholder="Find a city...">
+            <a href="#searchCity" id="checkWeather" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-search">Check Weather</a>
+          </form>
+          <label for="list"><h3>Popular Cities</h3></label>
+          <ul id="cityList" name="list" data-role="listview" data-inset="true">
+            <script id="pageTemplate" type="text/x-handlebars-template">
+              {{#.}}
+              <li><a href="#searchCity" data-rel="close">{{this}}</a></li>
+              {{/.}}
+            </script>
+          </ul>
+        </div><!-- /left panel -->
+        <!-- right panel -->
+        <div data-role="panel" data-position="right" id="recentSearch">
+          <label for="recentlist"><h3>Recent Search</h3></label>
+          <ul id="recentList" name="recentlist" data-role="listview" data-inset="true">
+          </ul>
+        </div><!-- /right panel -->
+        <div data-role="header">
+          <a id="search" href="#searchCity" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-search">Search</a>
+          <h1>Weather App</h1>
+          <a id="recent" href="#recentSearch" class="ui-btn ui-btn-right ui-btn-mini ui-shadow ui-corner-all ui-btn-icon-right ui-icon-navigation">Recent</a>
+        </div>
+        <div id="content" role="main" class="ui-content">
+          <div id="weather"></div>
+          <div id="chart">
+            <canvas id="canvas" width="300" height="250"></canvas>
+          </div>
+        </div>
+        <div data-role="footer" style="text-align:center;">
+          <button id="js-geolocation" class="ui-btn ui-btn-corner-all ui-shadow ui-btn-icon-right ui-icon-location">Use Your Location</button>
+        </div>
+      </div>
+
+
+
+
+
+</body>
+</html>
